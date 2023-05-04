@@ -1,0 +1,26 @@
+POST http://localhost:5000/api/skill
+content-type: application/json
+
+{
+    "name": "javascript"
+}
+###
+GET http://localhost:5000/api/skill
+content-type: application/json
+###
+PUT http://localhost:5000/api/skill
+content-type: application/json
+
+{
+    "id": "3",
+    "newData": {
+        "name": "SQL"
+    }
+}
+###
+DELETE http://localhost:5000/api/skill
+content-type: application/json
+
+{
+    "name": "skill placeholder"
+}
