@@ -1,14 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
 
-const DeleteWilder = (wilderId) => {
-    console.log(wilderId, "wilderID")
+const DeleteWilder = ({wilderId}: {wilderId: number}) => {
+    console.log(wilderId, "wilderId")
     return (
         <form 
         onSubmit={(e) => {
-            console.log(wilderId.wilderId, "après async")
+            console.log(wilderId, "après async")
             e.preventDefault();
-             axios.delete(`http://localhost:5000/api/wilder/${wilderId.wilderId}`).then((data)=> (console.log));
+             axios.delete(`http://localhost:5000/api/wilder/${wilderId}`).then((data)=> (console.log));
             console.log("après requete")
           }}
         >

@@ -1,9 +1,11 @@
-const Skill = ({skill}) => {
-    console.log(skill, "dans compo skill")
+import { ISkills } from "../../Interfaces";
+
+
+const Skill = ({title, votes} :ISkills) => {
       return (
         <li>
-          {skill.title}
-          <span className="votes">{skill.votes}</span>
+          {title}
+          <span className="votes">{votes}</span>
         </li>
       );
     };

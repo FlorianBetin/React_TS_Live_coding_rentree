@@ -3,33 +3,25 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import AddWilder from './components/addwilder/Addwilder';
 import Wilder from "./components/wilder/Wilder";
+import { IWildersArrayObjects } from "./Interfaces";
+import { ISkills } from "./Interfaces";
+
 
 function App() {
 
-  interface ISkills {
-    title: string
-    votes: number
-  }
-  
-  interface IWildersArrayObjects {
-   id: number
-   name: string
-   city: string
-   skills: ISkills[]
-  }
-const [wildersState, setWildersState] = useState<IWildersArrayObjects>([] as any);
-console.log(wildersState, "wildersState");
+const [wildersState, setWildersState] = useState<IWildersArrayObjects[]>([]);
+console.log(wildersState, "wildersState/app.tsx");
 
 
   useEffect(() => {
     const fetchData = async () => {
       const wildersApi = await axios.get("http://localhost:5000/api/wilder");
-      console.log(wildersApi.data, "wilder.data");
       setWildersState(wildersApi.data);
     };
 
     fetchData();
   }, []);
+  console.log(wildersState, "wilderstate")
   return (
     <div>
       <header>

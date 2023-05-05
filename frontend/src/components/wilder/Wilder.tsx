@@ -1,16 +1,13 @@
 import profilePic from "../../assets/profilepicture.png";
 import Skill from "../skill/Skill"
 import DeleteWilder from "../deletewilder/Deletewilder"
+import { ISkills } from "../../Interfaces";
+import { IWilderProps } from "../../Interfaces";
 
-export interface IWilderProps {
-    name: string;
-    city: string;
-    wilderId: number;
-    skills: number;
-}
+
 
 const Wilder = ({name, skills, city, wilderId}: IWilderProps) => {
-  console.log(skills, "skill")
+  console.log(wilderId, "wilderId compo/wilder.tsx")
   return (
     <article className="card">
       <img src={profilePic} alt="Jane Doe Profile" />
@@ -24,9 +21,12 @@ const Wilder = ({name, skills, city, wilderId}: IWilderProps) => {
       </p>
       <h4>Wild Skills</h4>
       <ul className="skills">
-        {skills.map((skill) => {
-          console.log(skill, "dans wilder");
-         return <Skill skill={skill}/>
+        {skills.map((skill: ISkills) => {
+          console.log(skill, "prop de skill dans wilder.tsx");
+         return <Skill 
+         votes={skill.votes}
+         title = {skill.title}
+          />
         }
         )}
 
